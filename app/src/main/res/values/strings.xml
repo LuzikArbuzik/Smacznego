@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Smacznego</string>
+    <string name="login_info">Zaloguj się</string>
+    <string name="restaurant">Restauracja</string>
+    <string name="courier">Kurier</string>
+    <string name="login_restaurant">Wpisz identyfikator i hasło</string>
+    <string name="login_restaurant_hint">Login</string>
+    <string name="password_restaurant_hint">Hasło</string>
+    <string name="restaurant_name">Pizza Station Grabiszyńska</string>
+    <string name="login_as">Zalogowany jako:</string>
+    <string name="add_order">Dodaj zamówienie</string>
+</resources>
