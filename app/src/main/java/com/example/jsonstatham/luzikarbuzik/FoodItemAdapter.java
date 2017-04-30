@@ -13,14 +13,13 @@ public class FoodItemAdapter extends ArrayAdapter {
 
     private String[] foods;
 
-    public FoodItemAdapter(@NonNull Context context, @LayoutRes int resource, String[] foods) {
-        super(context, resource);
+    public FoodItemAdapter(@NonNull Context context, String[] foods) {
+        super(context, 0);
         this.foods = foods;
     }
 
-    @NonNull
     @Override
-    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent) {
         String foodName = foods[position];
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.food, parent, false);

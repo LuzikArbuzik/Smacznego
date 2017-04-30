@@ -14,7 +14,7 @@ public class Order extends AppCompatActivity {
         String[] food = new String[]{"Pizza Florentina", "Pizza Fiume", "Pizza Maffioso", "Pizza Frutti Di Mare",
                 "Pizza Marco Polo", "Pizza Giuseppe", "Pizza Uczta Sołtysa", "Pizza Jordano", "Pizza Vegetariana",
                 "Pizza Cosa Nostra"};
-        ArrayAdapter foodAdapter = new FoodItemAdapter(this, R.layout.food, food);
+        FoodItemAdapter foodAdapter = new FoodItemAdapter(this, food);
         ListView list = (ListView)findViewById(R.id.food_list);
         list.setAdapter(foodAdapter);
     }
