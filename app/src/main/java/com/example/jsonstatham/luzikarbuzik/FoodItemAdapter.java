@@ -22,6 +22,7 @@ public class FoodItemAdapter extends ArrayAdapter<String> {
         TextView foodText = (TextView) convertView.findViewById(R.id.food_text);
         foodText.setText(foodName);
         return convertView;
+
     }
 
 }
