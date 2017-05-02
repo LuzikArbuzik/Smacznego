@@ -9,4 +9,5 @@
     <string name="restaurant_name">Pizza Station Grabiszyńska</string>
     <string name="login_as">Zalogowany jako:</string>
     <string name="add_order">Dodaj zamówienie</string>
+    <string name="ammount">Ilość</string>
 </resources>

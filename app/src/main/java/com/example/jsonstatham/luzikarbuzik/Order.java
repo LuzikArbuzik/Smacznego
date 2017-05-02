@@ -2,6 +2,7 @@ package com.example.jsonstatham.luzikarbuzik;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -17,6 +18,12 @@ public class Order extends AppCompatActivity {
         FoodItemAdapter foodAdapter = new FoodItemAdapter(this, food);
         ListView list = (ListView)findViewById(R.id.food_list);
         list.setAdapter(foodAdapter);
+        list.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
 }
