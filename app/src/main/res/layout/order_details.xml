@@ -8,8 +8,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/food_name"
         android:layout_centerHorizontal="true"
-        android:textSize="25sp"
+        android:textSize="35sp"
         android:textColor="@color/white"
+        android:layout_marginTop="20dp"
         />
 
     <RelativeLayout
@@ -18,6 +19,7 @@
         android:id="@+id/ammount_layout"
         android:layout_below="@+id/food_name"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
         >
 
         <TextView
@@ -25,19 +27,19 @@
             android:layout_height="wrap_content"
             android:id="@+id/ammount"
             android:text="@string/ammount"
-            android:textSize="25sp"
+            android:textSize="35sp"
             android:textColor="@color/white"
             />
 
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:textSize="25sp"
+            android:inputType="number"
+            android:textSize="35sp"
             android:textColor="@color/white"
-            >
-
-        </EditText>
+            android:layout_below="@+id/ammount"
+            />
 
     </RelativeLayout>
 
@@ -46,25 +48,49 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/ammount_layout"
+        android:layout_marginTop="50dp"
+        android:id="@+id/kindLayout"
         >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/kind"
-            android:textSize="25sp"
+            android:textSize="35sp"
             android:textColor="@color/white"
+            android:text="@string/kind"
             />
 
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:textSize="25sp"
+            android:textSize="35sp"
             android:textColor="@color/white"
-            >
+            android:layout_below="@+id/kind"
+            />
 
-        </EditText>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/kindLayout">
+
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/summaryButton"
+            android:text="@string/Summary"/>
+
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/nextButton"
+            android:layout_toRightOf="@+id/summaryButton"
+            android:text="@string/next"/>
 
     </RelativeLayout>
 

@@ -10,4 +10,7 @@
     <string name="login_as">Zalogowany jako:</string>
     <string name="add_order">Dodaj zamówienie</string>
     <string name="ammount">Ilość</string>
+    <string name="kind">Rodzaj</string>
+    <string name="next">Następne</string>
+    <string name="Summary">Podsumowanie</string>
 </resources>
