@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import retrofit2.Retrofit;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -15,6 +17,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
    public void loginRestaurant(View button) {
+      Retrofit retrofit = new Retrofit.Builder()
+               .baseUrl("127.0.0.1:8081")
+               .build();
        Intent newScreen = new Intent(this, Order.class);
        startActivity(newScreen);
    }

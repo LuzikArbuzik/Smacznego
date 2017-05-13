@@ -39,6 +39,7 @@
             android:textSize="35sp"
             android:textColor="@color/white"
             android:layout_below="@+id/ammount"
+            android:id="@+id/editAmmount"
             />
 
     </RelativeLayout>
@@ -69,6 +70,7 @@
             android:textSize="35sp"
             android:textColor="@color/white"
             android:layout_below="@+id/kind"
+            android:id="@+id/editKind"
             />
 
     </RelativeLayout>
@@ -83,7 +85,8 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:id="@+id/summaryButton"
-            android:text="@string/Summary"/>
+            android:text="@string/Summary"
+            android:onClick="showSummary"/>
 
         <Button
             android:layout_width="200dp"

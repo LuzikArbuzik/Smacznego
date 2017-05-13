@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Smacznego</string>
-    <string name="login_info">Zaloguj się</string>
+    <string name="login">Zaloguj się</string>
     <string name="restaurant">Restauracja</string>
     <string name="courier">Kurier</string>
     <string name="login_restaurant">Wpisz identyfikator i hasło</string>
@@ -13,4 +13,7 @@
     <string name="kind">Rodzaj</string>
     <string name="next">Następne</string>
     <string name="Summary">Podsumowanie</string>
+    <string name="preference_file_key">com.example.jsonstatham.luzikarbuzik.PREFERENCE_FILE_KEY</string>
+    <string name="summary">Podsumowanie zamówienia</string>
+    <string name="send">Wyślij</string>
 </resources>
