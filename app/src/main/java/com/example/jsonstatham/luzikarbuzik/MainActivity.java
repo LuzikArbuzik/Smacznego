@@ -1,11 +1,19 @@
 package com.example.jsonstatham.luzikarbuzik;
 
-import android.content.Intent;
+import android.support.v4.util.ArrayMap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.Toast;
 
+import org.json.JSONObject;
+
+import java.util.Map;
+
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,10 +26,39 @@ public class MainActivity extends AppCompatActivity {
 
    public void loginRestaurant(View button) {
       Retrofit retrofit = new Retrofit.Builder()
-               .baseUrl("127.0.0.1:8081")
+               .baseUrl("http://127.0.0.1:8081/")
                .build();
-       Intent newScreen = new Intent(this, Order.class);
-       startActivity(newScreen);
+       Post post = retrofit.create(Post.class);
+       Map<String, String> jsonParams = new ArrayMap<>();
+       jsonParams.put("login", "1312");
+       jsonParams.put("password", "Haslomaslo");
+
+       RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"),
+               (new JSONObject(jsonParams)).toString());
+       Call<ResponseBody> response = post.login(body);
+
+       response.enqueue(new Callback<ResponseBody>()
+       {
+           @Override
+           public void onResponse(Call<ResponseBody> call, retrofit2.Response<ResponseBody> rawResponse)
+           {
+               try
+               {
+                   Toast.makeText(getApplicationContext(), "Wysłano", Toast.LENGTH_LONG).show();
+               }
+               catch (Exception e)
+               {
+                   Toast.makeText(getApplicationContext(), "Wystąpił problem z odpowiedzią", Toast.LENGTH_LONG).show();               }
+           }
+
+           @Override
+           public void onFailure(Call<ResponseBody> call, Throwable throwable)
+           {
+               Toast.makeText(getApplicationContext(), "Nie wysłano", Toast.LENGTH_LONG).show();
+           }
+       });
+       /*Intent newScreen = new Intent(this, Order.class);
+       startActivity(newScreen);*/
    }
 
 }
