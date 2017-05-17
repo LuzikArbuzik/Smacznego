@@ -43,4 +43,9 @@ public class OrderDetails extends AppCompatActivity {
         startActivity(newScreen);
     }
 
+    public void next(View button) {
+        Intent newScreen = new Intent(this, Order.class);
+        startActivity(newScreen);
+    }
+
 }

@@ -93,7 +93,10 @@
             android:layout_height="wrap_content"
             android:id="@+id/nextButton"
             android:layout_toRightOf="@+id/summaryButton"
-            android:text="@string/next"/>
+            android:text="@string/next"
+            android:onClick="next"
+            />
+
 
     </RelativeLayout>
 

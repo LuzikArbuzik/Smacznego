@@ -9,10 +9,6 @@ interface Post {
 
     @Headers( "Content-Type: application/json" )
     @POST("mule/login")
-    Call<String> login(@Body String jsonLoginDetails);
-
-    @Headers( "Content-Type: application/json" )
-    @POST("mule/login")
     Call<String> sendOrder(@Body String jsonOrderDetails);
 
 }

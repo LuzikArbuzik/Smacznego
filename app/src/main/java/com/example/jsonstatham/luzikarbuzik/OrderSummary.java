@@ -57,15 +57,20 @@ public class OrderSummary extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.apply();
         JSONObject root = new JSONObject();
+        JSONArray ordersArray;
         try {
-            JSONArray orders = new JSONArray("orders");
+            ordersArray = new JSONArray();
+            Set<String> orders = sharedPref.getStringSet("orders", new HashSet<String>());
+            for(String order: orders) {
+                ordersArray.put(new JSONObject(order));
+            }
+            root.put("orders", ordersArray);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Set<String> orders = sharedPref.getStringSet("orders", new HashSet<String>());
        /* jsonParams.put("login", login.getText().toString());
         jsonParams.put("password", password.getText().toString());*/
-        Call<String> response = post.login(new JSONObject(jsonParams).toString());
+        Call<String> response = post.sendOrder(new JSONObject(jsonParams).toString());
 
         response.enqueue(new Callback<String>() {
 
