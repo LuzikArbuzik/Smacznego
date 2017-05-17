@@ -31,6 +31,8 @@
         android:layout_below="@+id/order"
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
+        android:id="@+id/send"
+        android:onClick="send"
         />
 
 </RelativeLayout>
