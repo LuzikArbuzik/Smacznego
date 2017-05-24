@@ -35,7 +35,7 @@ public class OrderDetails extends AppCompatActivity {
         int foodAmmount = Integer.parseInt(editAmmount.getText().toString());
         if(foodAmmount > 0) {
             EditText editKind = (EditText)findViewById(R.id.editKind);
-            orders.add(foodAmmount + " x " + editKind.getText().toString() + " " + foodName.getText().toString());
+            orders.add(Integer.toString(foodAmmount) + " x " + editKind.getText().toString() + " " + foodName.getText().toString());
             editor.putStringSet("orders", orders);
             editor.apply();
         }

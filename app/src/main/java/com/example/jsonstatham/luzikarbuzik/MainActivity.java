@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
        EditText login = (EditText)findViewById(R.id.login_text);
        EditText password = (EditText)findViewById(R.id.password_text);
        String loginText = login.getText().toString();
-       if(loginText.equals("mc") && password.getText().toString().equals("12")) {
+       if(loginText.equals("ps") && password.getText().toString().equals("12")) {
            SharedPreferences sharedPref = getApplicationContext().getSharedPreferences(getString(R.string.preference_file_key),
                    Context.MODE_PRIVATE);
            SharedPreferences.Editor editor = sharedPref.edit();

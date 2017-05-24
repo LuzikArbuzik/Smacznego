@@ -3,12 +3,11 @@ package com.example.jsonstatham.luzikarbuzik;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v4.util.ArrayMap;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -51,26 +50,45 @@ public class OrderSummary extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         Post post = retrofit.create(Post.class);
-        Map<String, String> jsonParams = new ArrayMap<>();
         SharedPreferences sharedPref = getApplicationContext().getSharedPreferences(getString(R.string.preference_file_key),
                 Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.apply();
         JSONObject root = new JSONObject();
-        JSONArray ordersArray;
         try {
-            ordersArray = new JSONArray();
+            JSONObject client = new JSONObject();
+            client.put("first_name", "Jan");
+            client.put("last_name", "Kowalski");
+            client.put("phone_number", "+48 123123123");
+            JSONObject address = new JSONObject();
+            address.put("city", "Wroclaw");
+            address.put("street", "Grunwaldzka");
+            address.put("address_num", "12");
+            address.put("door_num", "1");
+            root.put("address", address);
+            JSONArray ordersArray = new JSONArray();
             Set<String> orders = sharedPref.getStringSet("orders", new HashSet<String>());
             for(String order: orders) {
-                ordersArray.put(new JSONObject(order));
+                OrderItem currentItem = OrderItem.decode(order);
+                JSONObject orderJson = new JSONObject();
+                orderJson.put("name", currentItem.getName());
+                orderJson.put("quantity", currentItem.getQuantity());
+                ordersArray.put(orderJson);
             }
-            root.put("orders", ordersArray);
+            root.put("dishes", ordersArray);
+            JSONObject restaurant = new JSONObject();
+            restaurant.put("name", "Pizza Station");
+            JSONObject restaurantAddress = new JSONObject();
+            restaurantAddress.put("city", "Wroclaw");
+            restaurantAddress.put("street", "Grabiszyńska");
+            restaurantAddress.put("address_num", "55");
+            restaurantAddress.put("door_num", "2");
+            restaurant.put("address", restaurantAddress);
+            root.put("restaurant", restaurant);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-       /* jsonParams.put("login", login.getText().toString());
-        jsonParams.put("password", password.getText().toString());*/
-        Call<String> response = post.sendOrder(new JSONObject(jsonParams).toString());
+        Call<String> response = post.sendOrder(root.toString());
 
         response.enqueue(new Callback<String>() {
 
