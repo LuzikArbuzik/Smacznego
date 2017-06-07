@@ -45,7 +45,7 @@ public class OrderSummary extends AppCompatActivity {
 
     public void send(View button) {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://127.0.0.1:8081/")
+                .baseUrl("http://10.0.2.2:8081/")
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
@@ -56,16 +56,18 @@ public class OrderSummary extends AppCompatActivity {
         editor.apply();
         JSONObject root = new JSONObject();
         try {
+            //root.put("test", "test");
             JSONObject client = new JSONObject();
-            client.put("first_name", "Jan");
+            client.put("first_name", "sJan");
             client.put("last_name", "Kowalski");
             client.put("phone_number", "+48 123123123");
+            root.put("client", client);
             JSONObject address = new JSONObject();
             address.put("city", "Wroclaw");
             address.put("street", "Grunwaldzka");
             address.put("address_num", "12");
             address.put("door_num", "1");
-            root.put("address", address);
+            client.put("address", address);
             JSONArray ordersArray = new JSONArray();
             Set<String> orders = sharedPref.getStringSet("orders", new HashSet<String>());
             for(String order: orders) {

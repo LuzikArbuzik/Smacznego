@@ -8,7 +8,7 @@ import retrofit2.http.POST;
 interface Post {
 
     @Headers( "Content-Type: application/json" )
-    @POST("mule/login")
+    @POST("mule/orders/")
     Call<String> sendOrder(@Body String jsonOrderDetails);
 
 }
